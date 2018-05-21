@@ -1,0 +1,23 @@
+language: objective-c
+osx_image: xcode61
+rvm:
+- 2.1.2
+before_install:
+- chmod a+x ./Scripts/install.sh
+- chmod a+x ./Scripts/build.sh
+install:
+- ./Scripts/install.sh
+script:
+- ./Scripts/build.sh
+deploy:
+  provider: s3
+  access_key_id: AKIAITEPAI7MBUKSYRMQ
+  secret_access_key:
+    secure: ki6uIaFaL6dwExiC0HpTa5K2+YP8WNeWbjFSZBTZQub4esPYlmkw8JGsqLGOv+1ics2SaL+ZUxyP0ivRfUO3hzvFPuVb/iLU3tvmBJuGmSz411suvCOkK7OOA5gxrUr9oM0Y3Z/827OVHZmUIB2Plun/KU1PZ94KNPFDQce9yQA=
+  bucket: dev.jonathan.porta.codes
+  local-dir: Build
+  upload-dir: ci-build
+  skip_cleanup: true
+  acl: public_read
+  on:
+    repo: JonathanPorta/ci-build
