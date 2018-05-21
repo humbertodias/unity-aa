@@ -9,9 +9,6 @@ install:
 - ./Scripts/install.sh
 script:
 - ./Scripts/build.sh
-branches:
-  only:
-  - master
 deploy:
   provider: releases
   api_key: "PxkFjzFXa3Dn0afLZUJwGA"
@@ -20,6 +17,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    all_branches: true
 
 #deploy:
 #  provider: s3
