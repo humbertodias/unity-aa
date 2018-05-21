@@ -9,6 +9,9 @@ install:
 - ./Scripts/install.sh
 script:
 - ./Scripts/build.sh
+branches:
+  only:
+  - master
 deploy:
   provider: releases
   api_key: "PxkFjzFXa3Dn0afLZUJwGA"
