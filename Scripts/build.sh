@@ -12,8 +12,6 @@ echo "Attempting to build $project for OS X"
   -buildOSXUniversalPlayer "$(pwd)/Build/osx/$project.app" \
   -quit
 
-: 'Multiline comment:
-
 echo "Attempting to build $project for Linux"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -35,6 +33,7 @@ echo "Attempting to build $project for Windows"
   -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
   -quit
 
+: '
 echo "Attempting to build $project for WebGL"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -46,5 +45,6 @@ echo "Attempting to build $project for WebGL"
   -quit
 '
 
+757396
 echo 'Logs from build'
 cat $(pwd)/unity.log
