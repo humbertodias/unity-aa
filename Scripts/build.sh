@@ -2,6 +2,7 @@
 
 project="unity-aa"
 
+: 'Multiline comment:
 echo "Attempting to build $project for Windows"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -30,6 +31,17 @@ echo "Attempting to build $project for Linux"
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
   -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project.exe" \
+  -quit
+'
+
+echo "Attempting to build $project for WebGL"
+/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+  -batchmode \
+  -nographics \
+  -silent-crashes \
+  -logFile $(pwd)/unity.log \
+  -projectPath $(pwd) \
+  -buildTarget WebGL \
   -quit
 
 echo 'Logs from build'
