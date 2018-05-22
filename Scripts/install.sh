@@ -29,6 +29,8 @@ install() {
 
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
 # of available packages, where PLATFORM is `osx` or `win`
+
+# http://netstorage.unity3d.com/unity/21ae32b5a9cb/unity-2017.4.3f1-osx.ini 
 # http://netstorage.unity3d.com/unity/b8cbb5de9840/unity-2018.1.1f1-osx.ini 
 
 : 'Multiline comment:
