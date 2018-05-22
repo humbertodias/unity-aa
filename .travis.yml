@@ -11,23 +11,8 @@ script:
 - ./Scripts/build.sh
 deploy:
   provider: releases
-    secure: WBr+wBxB9sve1yxcrT4qvQiZKJV4VXZ0HbDwI/pE5Pa4PDpwbtzkStNCCAI84LmXnsepb72k5FOfGiWZEuTz2jX529nEz0TogMZk6sAUZ7EVtCJSKRaO4wt4NRexxwLNuKFcugyLib2EjT5Y7akqeTAmBHLjICQ8RiM37W7NANCNGmMhnmOLDgCA8fyeScWEoqlkwQlx6zxPtjDybJvvzyb9QFOV6CZ58f9gk0GsesDuWepYtEQzq/ywQ0wmzr5AcKuQa6QmXlAJeE6EJYQko+p/Y4DPHgbVzMpE0VEuQLPN2Qiq62iQwnMjpRgeVwV8Xyg8hZ8bNT7b1Vwi9W7Icb2p/EpsMmRJC5fYieCO7WWemHDtbry6fEyG+xgeg7R9YQQbwNCGbWo/cFpI7Zc67jATmA0UwkJ8hdBsJx3jBSUTIbbAwdCrIyMrQFAyavEvVMvx+Gf8yEpsu8DvQYOlJ3liIp8rRZAy1s3aQ4VLfuY5We7s8+wahp9eYFw6cXYbv0D01YhhsNzfFkYCVv8DcivUGnDGEDNN4wtBdhJwqriBSgtlsSU5SSFwX21pjkKbt28q/YWDuQXz33UI9nk7FHuHlgAYXo4/DkS066Ekii8CYnIG7OSzT8TOfGZYisGJ2uT8KOgyBFwBXoKT/w5nqELfZAyLRHhLFhtHAzFi/M4=
-  file_glob: true
+  api_key:
+    secure: Q5OmE8FtGP4It69a3AGlCjEb+FvfIb7wgCF6f2+bqHRga77rfQXRKmUXFKXT51/RPs3CJYNi3qr5GHCK7he5WYYSydaxTk0keo9z+QT5SgYTsXsoWz03xNA2Du6N/klwaPr8WugA31hk4OkW/t8k7P5rMxqhVTz8Rn7pchN8dFQbyC5OKfdqdXdvKCdV4Qi0ElQTO03iRxLcuPBVP5bprVKqdFOOB2xGBysJEqDPhp+HUmKCyardXAlrJwSHRrdEdJjyYz2y0afom2gllZSgARe1uQf/ZUDe8wde/lPZMCPiR08SVWmFUaCGkLkzBDQBe09+xkMCiazVWQqBHBWE1NY2auSacjqNUmEOo31mVI6r2dOM+RwdMVTEAmVuLXRYFYs1oMEfXsk95zgufLOTdU8OaXM8HoW7Z1s5r41bs7NSBeQBKMvmILCLThKThe5n8qJIxdnVmzraTveAj8FXCWN42nec4vsykDIte1u1Ky2pSkO2kl4HGJBsdk5CNTwBRfiEal9JEAoupw8VVL0MaGI0nTegzM9fRfq0Qixyl8bsmh9kOwnFHtZy3MLtBRHvPl/deNnSGn+Vn85tBtuSukFRKoi4GwdlvFOC9h4m8Hi7D+3EjIfGnM/YX2p39PjR7pwBhrQocHXPAvFuvtTPWt9F9H486jJYV4ULVirF2NA=
   file: Build/**/*
-  skip_cleanup: true
   on:
-    tags: false
-    all_branches: true
-
-#deploy:
-#  provider: s3
-#  access_key_id: AKIAITEPAI7MBUKSYRMQ
-#  secret_access_key:
-#    secure: ki6uIaFaL6dwExiC0HpTa5K2+YP8WNeWbjFSZBTZQub4esPYlmkw8JGsqLGOv+1ics2SaL+ZUxyP0ivRfUO3hzvFPuVb/iLU3tvmBJuGmSz411suvCOkK7OOA5gxrUr9oM0Y3Z/827OVHZmUIB2Plun/KU1PZ94KNPFDQce9yQA=
-#  bucket: dev.jonathan.porta.codes
-#  local-dir: Build
-#  upload-dir: ci-build
-#  skip_cleanup: true
-#  acl: public_read
-#  on:
-#    repo: JonathanPorta/ci-build
+    repo: humbertodias/unity-aa
