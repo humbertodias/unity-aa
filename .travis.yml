@@ -11,6 +11,7 @@ script:
 - "./Scripts/build.sh"
 deploy:
   provider: releases
+  file_glob: true
   file: Build/**/*
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
