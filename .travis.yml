@@ -11,8 +11,11 @@ script:
 - "./Scripts/build.sh"
 deploy:
   provider: releases
-  api_key: $GITHUB_TOKEN
+  api_key: "$GITHUB_TOKEN"
   file: Build/**/*
   skip_cleanup: true
   on:
     repo: humbertodias/unity-aa
+env:
+  global:
+    secure: iMUWG84lRr2d6Tyx73J7kTeirr9rujrEL8jDfnKeE5+jLHo6dtGMLS7YSb/dESZwhpPbH3C04KxzKtxknhdCFm23X7VpF39Uh2kdBZGhN2CQz7FN07xfv/ZmqwLyXS2oMUU5+SUhkszRGuA9ulADQ6XSwdusSUBqdgfEfmmj5Ep+GMFsEQH32t1+FjVgGt2mKmQgBp3wWnmMqLrCuVtA32yFgHqn77uPa9bybtTsClPy5ItvDChl6uOzIAj+RHrQqEKSYfoQUkj09A8yP3z0wp7WU5BGYJsL/baB2UX1NZ9XzFDhCJyPJeVVnzw1RYTHW2Hgh1Wj4g3RGjLLtIC9ZpuAmEMUs2vbpwoGLzzdwym9F2z9rfwi1KbLnJUS7FURZLRC1ZVkPSIu00xIQLjJjuEBpiMucQPyYHFSFYH6I4vwi5uwwJIEPYu+WfzcDSOemiVclYGmYoKX88Rs0PqpleofGbUL4yohWKsCojJTfjLb+1Jp6KkHYG8ThPj3JeB9FRJk8J84PIFkH6p8oB56VQBYVTWs+vvz6YPkHIoTb0Q+CfVIgLyAt9ksfkZ3wxb7W/BXORTFJjc+7gkrE9nV2JKvRGuxwtE/qeMXdDFNXsBi99gP1UOuB20gYsN7nHq2ZAr/G579DEOOE6jbC+vsK55Ms+KG66I+IypjwQByOy8=
