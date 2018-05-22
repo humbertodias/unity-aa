@@ -12,7 +12,7 @@ script:
 deploy:
   provider: releases
   file_glob: true
-  file: Build/**/*
+  file: Build/**/*.zip
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
   on:
