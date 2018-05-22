@@ -50,6 +50,8 @@ cat $(pwd)/unity.log
 
 
 echo 'Attempting to zip builds'
-zip -r $(pwd)/Build/linux.zip $(pwd)/Build/linux/
-zip -r $(pwd)/Build/mac.zip $(pwd)/Build/osx/
-zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
+pushd $(pwd)/Build
+zip -9 -r linux.zip linux/
+zip -9 -r mac.zip osx/
+zip -9 -r windows.zip windows/
+popd
