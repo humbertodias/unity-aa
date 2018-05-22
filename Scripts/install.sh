@@ -8,7 +8,7 @@ BASE_URL=http://netstorage.unity3d.com/unity
 #HASH=21ae32b5a9cb
 #VERSION=2017.4.3f1
 
-HASH=b8cbb5de9839
+HASH=b8cbb5de9840
 VERSION=2018.1.1f1
 
 download() {
@@ -40,8 +40,9 @@ install "MacEditorTargetInstaller/UnitySetup-Mac-IL2CPP-Support-for-Editor-$VERS
 install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
 '
-
 install "MacEditorInstaller/Unity-$VERSION.pkg"
+
+# <= 2017
 install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
