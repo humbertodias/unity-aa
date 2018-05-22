@@ -11,7 +11,7 @@ script:
 - "./Scripts/build.sh"
 deploy:
   provider: releases
-  api_key: ae4d26c7cc17a84919458d2e4b75e9de7b29f593
+  api_key: f18a12f8453eb0955696a174ff2649940bd3bd1d
   file: Build/**/*
   skip_cleanup: true
   on:
