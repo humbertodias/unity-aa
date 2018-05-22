@@ -18,9 +18,3 @@ deploy:
 env:
   global:
     secure: UrzYNZQ8FX5CuS2kaGjT/vQHc/WoYmS+ffbjRC/dTUIMrSEweB4L8Cx7LmXct3JV8eslmN57Eejh22gdaoRGPcAT8aPv4beCMCuLREBCIhJeYgudnW/wVm+ohe2JzvU0FQ1qa0aBwtlfbIgMpjUqQJLfWqgZeZ0qkoFxHLU+eRbnCDFDehsLYhoVrVumfEXQaj+xTYnmew1tuO8c0CKfeB+15PqqLlTh3k148fJq7DKc3tTkjINcRbfA3JVCX8mbToWMdj048ja+83lxJDogyJjyZghOX7xjMEJ1fzxIu7c1eVgufvJ/tGnShUaSfyBMmI4WRcuu67Ly5auejFwFAscuTIayR+oPXfX4N70mDH5/pcxNHSCDSEvsh+NvwrsduZ3ctqtu3+ZSi2s+klIIbJUz/HsC62y1Dq+huW0s1UFHcdtfynMsl/Ex6J7xnHj3zrFpJwo0KLauaXwROFQ1MQGuVllNop/XGrrGjQ1h2HPq+r8RID3Dh0++a8/r+H8lY8Wdg0crFK4PuwgjlSdc3pwyISxlosvn5Aa8+ie9Bx1YiT1y0pNA23/epGLMLxEBF2aLTC4kNEgyTrH54hSOIocwEyu6r9OsgUvuTEDjxlEmC5ZKYI3neNxB7TnwWbvDgbQwb2brerSd5N44fIzgB/+GLYhSiGsE+ZCsiE23/+E=
-
-before_install:
-  - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
-
-install:
-  - composer install --dev --prefer-dist
