@@ -16,7 +16,8 @@ deploy:
   file: Build/**/*
   skip_cleanup: true
   on:
-    repo: humbertodias/unity-aa
+    tags: false
+    all_branches: true
 
 #deploy:
 #  provider: s3
