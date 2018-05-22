@@ -11,10 +11,8 @@ script:
 - "./Scripts/build.sh"
 deploy:
   provider: releases
-  api_key:
-    secure: PgU1Uy6j9S0P3bSTJ8xuBFUel3i5HoX0vl8/xHUGxd1BfrMc24AoYVPRlNNIAhP5KKJjFm1Gr3pBwtveExXUUmieruxYwD+o5YbaNr6PHvf7axbqvu6lBUx46ql6efOwHn2HYCOkuDP9LHdbcjCU3AM80f5H46eN++pwJbF08HCuOI/kvL22Q4qVBqNo7X/PhAD4gdyszl+CDcBnKn2sOI+EArv9nfSuHGrquJdSI9fn58kgLby7Shz2lEylNxxtLXqAHy29SyCtQYv2GlQGzrQT1vkr01pxL+lveburxZsH1TQ3nSjmBQ+vAr5mSLVzYto9XVUZODhgnRD/bRX5Q0z2NC1+rqif8QSn8OnRY6azQLrKiTyYDF52Pis5sISWAzk2AnhcoaU0pw6GTYPq6kLAAGQGl35rNN5c44K/CBEjqFq8heBsTGIZ39IDsK12t6cfqMQh/m4CaXmdSbGB6AAyJjN1Q3sw+OpgoiUs3CbJROP8KJ8pZ0Emp/yZppESuQt8FLRsjySAncDKiEKKlxjjHhO19YPnm4M/PQCa0p7aNN9001KADR2llGQD34w08wAc6mYGb7GfeYgIBiowP0dw/LmGICDtT0mlMDloIGQgIp3xohuxsBaBcAiAXtmwcrc7hh9rpInPCYsFE2TMeDPIkP4FQ2RJGe/LO1++iZ0=
+  api_key: ae4d26c7cc17a84919458d2e4b75e9de7b29f593
   file: Build/**/*
   skip_cleanup: true
   on:
     repo: humbertodias/unity-aa
-    all_branches: true
