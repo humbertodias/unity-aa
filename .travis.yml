@@ -11,13 +11,12 @@ script:
 - ./Scripts/build.sh
 deploy:
   provider: releases
-  api_key: 82ad41a0adce1d46b4eae61bc5253ae045aeeb1c
+    secure: WBr+wBxB9sve1yxcrT4qvQiZKJV4VXZ0HbDwI/pE5Pa4PDpwbtzkStNCCAI84LmXnsepb72k5FOfGiWZEuTz2jX529nEz0TogMZk6sAUZ7EVtCJSKRaO4wt4NRexxwLNuKFcugyLib2EjT5Y7akqeTAmBHLjICQ8RiM37W7NANCNGmMhnmOLDgCA8fyeScWEoqlkwQlx6zxPtjDybJvvzyb9QFOV6CZ58f9gk0GsesDuWepYtEQzq/ywQ0wmzr5AcKuQa6QmXlAJeE6EJYQko+p/Y4DPHgbVzMpE0VEuQLPN2Qiq62iQwnMjpRgeVwV8Xyg8hZ8bNT7b1Vwi9W7Icb2p/EpsMmRJC5fYieCO7WWemHDtbry6fEyG+xgeg7R9YQQbwNCGbWo/cFpI7Zc67jATmA0UwkJ8hdBsJx3jBSUTIbbAwdCrIyMrQFAyavEvVMvx+Gf8yEpsu8DvQYOlJ3liIp8rRZAy1s3aQ4VLfuY5We7s8+wahp9eYFw6cXYbv0D01YhhsNzfFkYCVv8DcivUGnDGEDNN4wtBdhJwqriBSgtlsSU5SSFwX21pjkKbt28q/YWDuQXz33UI9nk7FHuHlgAYXo4/DkS066Ekii8CYnIG7OSzT8TOfGZYisGJ2uT8KOgyBFwBXoKT/w5nqELfZAyLRHhLFhtHAzFi/M4=
   file_glob: true
   file: Build/**/*
   skip_cleanup: true
   on:
-    tags: false
-    all_branches: true
+    repo: humbertodias/unity-aa
 
 #deploy:
 #  provider: s3
