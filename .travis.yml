@@ -33,13 +33,13 @@ deploy:
   skip_cleanup: true
   on:
     repo: humbertodias/unity-aa
-# - provider: releases
-#   file_glob: true
-#   file: 
-#     - Build/**/*.zip
-#     - unity.log
-#   api_key: $GITHUB_TOKEN
-#   skip_cleanup: false
-#   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
-#   on:
-#     repo: humbertodias/unity-aa
+- provider: releases
+  file_glob: true
+  file: 
+    - Build/**/*.zip
+    - unity.log
+  api_key: $GITHUB_TOKEN
+  skip_cleanup: false
+  name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
+  on:
+    repo: humbertodias/unity-aa
