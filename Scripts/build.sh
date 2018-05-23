@@ -47,7 +47,7 @@ echo "Attempting to build $project for WebGL"
   -quit
 
 echo "Attempting to build $project for Android"
-#mkdir -p $(pwd)/Build/android
+mkdir -p $(pwd)/Build/android
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \

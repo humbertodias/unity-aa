@@ -68,7 +68,7 @@ class PerformBuild
 		if (!fileInfo.Exists) {
 			Debug.Log(string.Format("Not.Exists {0}", fileInfo.ToString()));
 			if (!fileInfo.Directory.Exists) {
-				Debug.Log(string.Format("Directory.Exists {0}", fileInfo.ToString()));
+				Debug.Log(string.Format("Directory.Exists {0}", fileInfo.Directory.ToString()));
 				fileInfo.Directory.Create ();
 			} else {
 				if (!fileInfo.Directory.Parent.Exists) {
