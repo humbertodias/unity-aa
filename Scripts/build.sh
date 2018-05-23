@@ -53,7 +53,8 @@ echo "Attempting to build $project for Android"
   -executeMethod PerformBuild.CommandLineBuildAndroid \
   +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
-
+  
+:'
 echo "Attempting to build $project for iOS"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -64,6 +65,7 @@ echo "Attempting to build $project for iOS"
   -executeMethod PerformBuild.CommandLineBuildiOS \
   +buildlocation "$(pwd)/Build/ios/$project.ipa" \
   -quit
+'
 
 echo 'Logs from build'
 cat $(pwd)/unity.log
@@ -76,5 +78,5 @@ zip -9 -r mac.zip osx/
 zip -9 -r windows.zip windows/
 zip -9 -r webgl.zip webgl/
 zip -9 -r android.zip android/
-zip -9 -r ios.zip ios/
+#zip -9 -r ios.zip ios/
 popd
