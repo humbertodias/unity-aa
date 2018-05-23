@@ -27,22 +27,18 @@ install() {
   sudo installer -dumplog -package `basename "$package"` -target /
 }
 
+installNative() {
+  package=$1
+  brew install $package
+}
+
+
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
 # of available packages, where PLATFORM is `osx` or `win`
 
 # http://netstorage.unity3d.com/unity/21ae32b5a9cb/unity-2017.4.3f1-osx.ini 
 # http://netstorage.unity3d.com/unity/b8cbb5de9840/unity-2018.1.1f1-osx.ini 
 
-: 'Multiline comment:
-install "MacEditorInstaller/Unity-$VERSION.pkg"
-#install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-#install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
-
-install "MacEditorTargetInstaller/UnitySetup-Mac-IL2CPP-Support-for-Editor-$VERSION.pkg"
-#install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
-install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
-install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
-'
 install "MacEditorInstaller/Unity-$VERSION.pkg"
 
 # <= 2017
@@ -57,13 +53,14 @@ install "MacEditorTargetInstaller/UnitySetup-Mac-IL2CPP-Support-for-Editor-$VERS
 install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
 
 # Mobile
-install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
+#install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION.pkg"
 
 # Aditionals
-installNative() {
-  package=$1
-  brew install $package
-}
-
 installNative gradle
+
+gradle -v
+java -v
+
+echo "JAVA_HOME=$JAVA_HOME"
+echo "ANDROID_HOME=$ANDROID_HOME"
