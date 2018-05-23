@@ -65,14 +65,19 @@ class PerformBuild
 
 		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
 		FileInfo fileInfo = new FileInfo (path);
-		if (! fileInfo.Exists ) {
+		if (!fileInfo.Exists) {
+			Debug.Log(string.Format("Not.Exists {0}", fileInfo.ToString()));
 			if (!fileInfo.Directory.Exists) {
+				Debug.Log(string.Format("Directory.Exists {0}", fileInfo.ToString()));
 				fileInfo.Directory.Create ();
 			} else {
 				if (!fileInfo.Directory.Parent.Exists) {
+					Debug.Log(string.Format("Directory.Parent.Exists {0}", fileInfo.Directory.Parent.ToString()));
 					fileInfo.Directory.Parent.Create ();
 				}
 			}
+		} else {
+			Debug.Log(string.Format("Exists {0}", fileInfo.ToString()));
 		}
 
 		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));

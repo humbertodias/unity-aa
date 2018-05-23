@@ -51,7 +51,7 @@ echo "Attempting to build $project for Android"
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
   -executeMethod PerformBuild.CommandLineBuildAndroid \
-  +buildlocation "$(pwd)/Build/android/" \
+  +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
 
 :'
