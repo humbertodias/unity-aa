@@ -9,7 +9,6 @@ before_install:
 
 install:
 - "./Scripts/install.sh"
-
 script:
 - "./Scripts/build.sh"
 
