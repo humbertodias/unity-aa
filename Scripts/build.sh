@@ -42,7 +42,7 @@ echo "Attempting to build $project for WebGL"
   -executeMethod PerformBuild.CommandLineBuildWebGL \
   +buildlocation "$(pwd)/Build/webgl/$project" \
   -quit
-:'
+
 echo "Attempting to build $project for Android"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -53,7 +53,8 @@ echo "Attempting to build $project for Android"
   -executeMethod PerformBuild.CommandLineBuildAndroid \
   +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
-
+  
+:'
 echo "Attempting to build $project for iOS"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
