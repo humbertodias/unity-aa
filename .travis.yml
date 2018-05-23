@@ -26,16 +26,6 @@ android:
     - android-26
 
 deploy:
-- provider: releases
-  file_glob: true
-  file: 
-    - Build/**/*.zip
-    - unity.log
-  api_key: $GITHUB_TOKEN
-  skip_cleanup: false
-  name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
-  on:
-    repo: humbertodias/unity-aa
 - provider: pages
   local-dir: Build/webgl/unity-aa/
   github-token: $GITHUB_TOKEN
