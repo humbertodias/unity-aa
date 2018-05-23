@@ -33,7 +33,6 @@ echo "Attempting to build $project for Windows"
   -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
   -quit
 
-:'
 echo "Attempting to build $project for WebGL"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -56,19 +55,6 @@ echo "Attempting to build $project for Android"
   -executeMethod PerformBuild.CommandLineBuildAndroid \
   +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
-'
-
-echo "Attempting to build $project for WebGL"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -executeMethod PerformBuild.buildWebGL \
-  -quit
-
-
 
 echo 'Logs from build'
 cat $(pwd)/unity.log
