@@ -1,5 +1,8 @@
 #! /bin/sh
 
+echo "ANDROID_SDK_HOME: $ANDROID_SDK_HOME"
+echo "JDK_HOME: $JDK_HOME"
+
 project="unity-aa"
 
 echo "Attempting to build $project for OS X"
@@ -44,6 +47,7 @@ echo "Attempting to build $project for WebGL"
   -quit
 
 echo "Attempting to build $project for Android"
+mkdir -p $(pwd)/Build/android
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
