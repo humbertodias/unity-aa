@@ -44,9 +44,9 @@ class PerformBuild
 
 	static void BuildPlayerTarget(BuildTarget target){
 
-		string JdkRoot = Environment.GetEnvironmentVariable("JDK_HOME");
+		string JavaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
 		string AndroidSdkRoot = Environment.GetEnvironmentVariable("ANDROID_SDK_HOME");
-		Debug.Log("JDK_HOME: " + JdkRoot);
+		Debug.Log("JAVA_HOME: " + JavaHome);
 		Debug.Log("ANDROID_SDK_HOME: " + AndroidSdkRoot);
 
 
@@ -65,8 +65,6 @@ class PerformBuild
 
 		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
 		FileInfo fileInfo = new FileInfo (path);
-		fileInfo.Directory.Create ();
-		/*
 		if (!fileInfo.Exists) {
 			Debug.Log(string.Format("Not.Exists {0}", fileInfo.ToString()));
 			if (!fileInfo.Directory.Exists) {
@@ -81,7 +79,6 @@ class PerformBuild
 		} else {
 			Debug.Log(string.Format("Exists {0}", fileInfo.ToString()));
 		}
-		*/
 
 		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
