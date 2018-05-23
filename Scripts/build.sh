@@ -69,6 +69,7 @@ echo "Attempting to build $project for WebGL"
   -quit
 
 
+
 echo 'Logs from build'
 cat $(pwd)/unity.log
 
@@ -79,5 +80,5 @@ zip -9 -r linux.zip linux/
 zip -9 -r mac.zip osx/
 zip -9 -r windows.zip windows/
 zip -9 -r webgl.zip webgl/
-zip -9 -r android.zip android/
+#zip -9 -r android.zip android/
 popd

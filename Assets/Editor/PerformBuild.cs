@@ -125,9 +125,10 @@ class PerformBuild
 		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 	}
 
+	[UnityEditor.MenuItem("Perform Build/WebGL")]
 	static void buildWebGL() {
-		string[] scenes = GetBuildScenes();
-		string path = "Build/WebGL";
+		string[] scenes = {"Assets/MainLevel.unity"};
+		string path = "Build/webgl";
 		BuildPipeline.BuildPlayer(scenes, path, BuildTarget.WebGL, BuildOptions.None);
 	}
 		
