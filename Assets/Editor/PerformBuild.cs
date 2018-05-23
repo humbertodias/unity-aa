@@ -41,7 +41,7 @@ class PerformBuild
 		return names.ToArray();
 	}
 
-	void BuildPlayerTarget(BuildTarget target){
+	static void BuildPlayerTarget(BuildTarget target){
 		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
 
 		string[] scenes = GetBuildScenes();
