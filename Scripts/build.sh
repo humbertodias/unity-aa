@@ -40,7 +40,8 @@ echo "Attempting to build $project for WebGL"
   -silent-crashes \
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
-  -buildTarget WebGL \
+  -executeMethod PerformBuild.CommandLineBuildWebGL \
+  +buildlocation "$(pwd)/Build/webgl/$project" \
   -quit
 
 echo "Attempting to build $project for Android"
@@ -51,6 +52,8 @@ echo "Attempting to build $project for Android"
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
   -buildTarget Android \
+  -executeMethod PerformBuild.CommandLineBuildAndroid \
+  +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
 
 
@@ -63,4 +66,6 @@ pushd $(pwd)/Build
 zip -9 -r linux.zip linux/
 zip -9 -r mac.zip osx/
 zip -9 -r windows.zip windows/
+zip -9 -r webgl.zip webgl/
+zip -9 -r android.zip android/
 popd
