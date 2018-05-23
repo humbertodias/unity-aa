@@ -40,18 +40,15 @@ class PerformBuild
 		}
 		return names.ToArray();
 	}
-	
-	[UnityEditor.MenuItem("Perform Build/iOS Command Line Build")]
-	static void CommandLineBuildiOS ()
-	{
-		Debug.Log("Command line build\n------------------\n------------------");
-		
+
+	void BuildPlayerTarget(BuildTarget target){
+		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
+
 		string[] scenes = GetBuildScenes();
-		BuildTarget target = BuildTarget.iOS;
 		string path = GetBuildLocation(target);
 		if(scenes == null || scenes.Length==0 || path == null)
 			return;
-		
+
 		Debug.Log(string.Format("Path: \"{0}\"", path));
 		for(int i=0; i<scenes.Length; ++i)
 		{
@@ -61,68 +58,31 @@ class PerformBuild
 		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
 		(new FileInfo(path)).Directory.Create();
 
-		Debug.Log(string.Format("Switching Build Target to {0}", "iOS"));
+		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
 
-		Debug.Log("Starting Build!");
+		Debug.Log("Starting " + target.ToString() + " Build!");
 		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
+
+	}
+	
+	[UnityEditor.MenuItem("Perform Build/iOS Command Line Build")]
+	static void CommandLineBuildiOS ()
+	{
+		BuildPlayerTarget(BuildTarget.iOS);
 	}
 	
 	[UnityEditor.MenuItem("Perform Build/Android Command Line Build")]
 	static void CommandLineBuildAndroid ()
 	{
-		Debug.Log("Command line build android version\n------------------\n------------------");
-		
-		string[] scenes = GetBuildScenes();
-		BuildTarget target = BuildTarget.Android;
-		string path = GetBuildLocation(target);
-		if(scenes == null || scenes.Length==0 || path == null)
-			return;
-		
-		Debug.Log(string.Format("Path: \"{0}\"", path));
-		for(int i=0; i<scenes.Length; ++i)
-		{
-			Debug.Log(string.Format("Scene[{0}]: \"{1}\"", i, scenes[i]));
-		}
-
-		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
-		(new FileInfo(path)).Directory.Create();
-
-		Debug.Log(string.Format("Switching Build Target to {0}", "Android"));
-		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
-		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
-
-		Debug.Log("Starting Android Build!");
-		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
+		BuildPlayerTarget(BuildTarget.Android);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/WebGL Command Line Build")]
 	static void CommandLineBuildWebGL ()
 	{
-		Debug.Log("Command line build WebGL version\n------------------\n------------------");
-
-		BuildTarget target = BuildTarget.WebGL;
-		string[] scenes = GetBuildScenes();
-		string path = GetBuildLocation(target);
-		if(scenes == null || scenes.Length==0 || path == null)
-			return;
-
-		Debug.Log(string.Format("Path: \"{0}\"", path));
-		for(int i=0; i<scenes.Length; ++i)
-		{
-			Debug.Log(string.Format("Scene[{0}]: \"{1}\"", i, scenes[i]));
-		}
-
-		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
-		(new FileInfo(path)).Directory.Create();
-
-		Debug.Log(string.Format("Switching Build Target to {0}", "WebGL"));
-		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
-		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
-
-		Debug.Log("Starting WebGL Build!");
-		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
+		BuildPlayerTarget(BuildTarget.WebGL);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/WebGL")]

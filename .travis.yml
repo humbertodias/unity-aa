@@ -2,13 +2,31 @@ language: objective-c
 osx_image: xcode9.3
 rvm:
 - 2.5.1
+
 before_install:
 - chmod a+x ./Scripts/install.sh
 - chmod a+x ./Scripts/build.sh
+
 install:
 - "./Scripts/install.sh"
+
 script:
 - "./Scripts/build.sh"
+
+jdk: oraclejdk8
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-26.0.2
+
+    # The SDK version used to compile your project
+    - android-26
+
 deploy:
 - provider: releases
   file_glob: true
