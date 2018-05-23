@@ -13,6 +13,10 @@ script:
 - "./Scripts/build.sh"
 
 jdk: oraclejdk8
+env:
+ global:
+    - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+    - ANDROID_HOME=/usr/local/share/android-sdk
 
 # android:
 #   components:

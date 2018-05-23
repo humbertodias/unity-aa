@@ -1,11 +1,7 @@
 #! /bin/sh
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export ANDROID_HOME=/usr/local/share/android-sdk
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-
 echo "ANDROID_SDK_HOME: $ANDROID_SDK_HOME"
-echo "JDK_HOME: $JDK_HOME"
+echo "JAVA_HOME: $JAVA_HOME"
 
 project="unity-aa"
 
