@@ -56,7 +56,16 @@ class PerformBuild
 		}
 
 		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
-		(new FileInfo(path)).Directory.Create();
+		FileInfo fileInfo = new FileInfo (path);
+		if (! fileInfo.Exists ) {
+			if (!fileInfo.Directory.Exists) {
+				fileInfo.Directory.Create ();
+			} else {
+				if (!fileInfo.Directory.Parent.Exists) {
+					fileInfo.Directory.Parent.Create ();
+				}
+			}
+		}
 
 		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
