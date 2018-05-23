@@ -15,9 +15,11 @@ deploy:
   file: Build/**/*.zip
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
+  on:
+    repo: humbertodias/unity-aa
 - provider: pages
   local-dir: Build/webgl/unity-aa/
   api_key: $GITHUB_TOKEN
   keep-history: true
-   on:
+  on:
     repo: humbertodias/unity-aa
