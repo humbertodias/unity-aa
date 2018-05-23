@@ -125,5 +125,10 @@ class PerformBuild
 		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 	}
 
-
+	static void buildWebGL() {
+		string[] scenes = GetBuildScenes();
+		string path = "Build/WebGL";
+		BuildPipeline.BuildPlayer(scenes, path, BuildTarget.WebGL, BuildOptions.None);
+	}
+		
 }
