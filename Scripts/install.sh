@@ -65,5 +65,20 @@ sdkmanager --version
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+
+#brew update > /dev/null;
+brew cask install android-sdk;
+export ANDROID_HOME=/usr/local/share/android-sdk
+
+mkdir "$ANDROID_HOME/licenses";
+echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license";
+echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license";
+echo y | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools";
+echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2";
+
+
+which android
+
+
 echo "JAVA_HOME=$JAVA_HOME"
 echo "ANDROID_HOME=$ANDROID_HOME"
