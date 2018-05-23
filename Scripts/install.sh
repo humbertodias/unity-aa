@@ -60,7 +60,10 @@ install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION
 installNative gradle
 
 gradle -v
-java -v
+java -version
+sdkmanager --version
+
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 echo "JAVA_HOME=$JAVA_HOME"
 echo "ANDROID_HOME=$ANDROID_HOME"
