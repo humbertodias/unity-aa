@@ -51,7 +51,6 @@ echo "Attempting to build $project for Android"
   -silent-crashes \
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
-  -buildTarget Android \
   -executeMethod PerformBuild.CommandLineBuildAndroid \
   +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
