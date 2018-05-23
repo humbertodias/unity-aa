@@ -13,6 +13,7 @@ script:
 - "./Scripts/build.sh"
 
 jdk: oraclejdk8
+
 env:
  global:
     - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
@@ -38,6 +39,7 @@ deploy:
   skip_cleanup: true
   on:
     repo: humbertodias/unity-aa
+
 - provider: releases
   file_glob: true
   file: 

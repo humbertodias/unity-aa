@@ -5,11 +5,11 @@ BASE_URL=http://netstorage.unity3d.com/unity
 #HASH=649f48bbbf0f
 #VERSION=5.4.1f1
 
-#HASH=21ae32b5a9cb
-#VERSION=2017.4.3f1
+HASH=21ae32b5a9cb
+VERSION=2017.4.3f1
 
-HASH=b8cbb5de9840
-VERSION=2018.1.1f1
+#HASH=b8cbb5de9840
+#VERSION=2018.1.1f1
 
 download() {
   file=$1
@@ -73,7 +73,6 @@ echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/a
 echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license";
 echo y | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools";
 echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2";
-
 
 gradle -v
 java -version
