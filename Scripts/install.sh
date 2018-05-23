@@ -62,14 +62,9 @@ rm *.pkg
 # Aditionals
 installNative gradle
 
-gradle -v
-java -version
-sdkmanager --version
-
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 
-#brew update > /dev/null;
 brew cask install android-sdk;
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
@@ -81,8 +76,9 @@ echo y | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools";
 echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2";
 
 
-which android
-
+gradle -v
+java -version
+sdkmanager --version
 
 echo "JAVA_HOME=$JAVA_HOME"
 echo "ANDROID_HOME=$ANDROID_HOME"
