@@ -15,6 +15,7 @@ deploy:
   file: Build/**/*.zip
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
+  name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
   on:
     repo: humbertodias/unity-aa
 - provider: pages
