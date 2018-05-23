@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 class PerformBuild
 {
@@ -42,6 +43,13 @@ class PerformBuild
 	}
 
 	static void BuildPlayerTarget(BuildTarget target){
+
+		string AndroidSdkRoot = Environment.GetEnvironmentVariable("ANDROID_SDK_HOME");
+		string JdkRoot = Environment.GetEnvironmentVariable("JDK_HOME");
+		Debug.Log("JDK_HOME: " + JdkRoot);
+		Debug.Log("ANDROID_SDK_HOME: " + AndroidSdkRoot);
+
+
 		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
 
 		string[] scenes = GetBuildScenes();
