@@ -45,6 +45,7 @@ echo "Attempting to build $project for WebGL"
 
 echo "Attempting to build $project for Android"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+  -batchmode \
   -nographics \
   -silent-crashes \
   -logFile $(pwd)/unity.log \
