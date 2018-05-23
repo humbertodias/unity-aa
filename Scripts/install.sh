@@ -64,10 +64,9 @@ installNative gradle
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-
 brew cask install android-sdk;
 export ANDROID_HOME=/usr/local/share/android-sdk
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 
 mkdir "$ANDROID_HOME/licenses";
 echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license";
