@@ -1,5 +1,9 @@
 #! /bin/sh
 
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+
 echo "ANDROID_SDK_HOME: $ANDROID_SDK_HOME"
 echo "JDK_HOME: $JDK_HOME"
 
@@ -47,7 +51,7 @@ echo "Attempting to build $project for WebGL"
   -quit
 
 echo "Attempting to build $project for Android"
-mkdir -p $(pwd)/Build/android
+#mkdir -p $(pwd)/Build/android
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
