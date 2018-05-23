@@ -29,7 +29,9 @@ android:
 deploy:
 - provider: releases
   file_glob: true
-  file: Build/**/*.zip
+  file: 
+    - Build/**/*.zip
+    - unity.log
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')

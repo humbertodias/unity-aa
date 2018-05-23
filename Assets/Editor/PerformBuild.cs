@@ -50,7 +50,7 @@ class PerformBuild
 			return;
 
 		Debug.Log(string.Format("Path: \"{0}\"", path));
-		for(int i=0; i<scenes.Length; ++i)
+		for(int i=0; i < scenes.Length; ++i)
 		{
 			Debug.Log(string.Format("Scene[{0}]: \"{1}\"", i, scenes[i]));
 		}

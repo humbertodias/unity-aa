@@ -59,3 +59,11 @@ install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.p
 # Mobile
 install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION.pkg"
+
+# Aditionals
+installNative() {
+  package=$1
+  brew install $package
+}
+
+installNative gradle
