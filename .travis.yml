@@ -19,7 +19,7 @@ deploy:
     repo: humbertodias/unity-aa
 - provider: pages
   local-dir: Build/webgl/unity-aa/
-  api_key: $GITHUB_TOKEN
+  github-token: $GITHUB_TOKEN
   keep-history: true
   on:
     repo: humbertodias/unity-aa
