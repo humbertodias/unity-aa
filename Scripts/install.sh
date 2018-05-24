@@ -70,7 +70,7 @@ export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 
 #brew cask install android-ndk;
 curl -o android-ndk-r13b-darwin-x86_64.zip https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
-unzip android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ -qq
+unzip -qq android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ 
 ln -s /usr/local/share/android-ndk-r13b /usr/local/share/android-ndk
 export ANDROID_NDK_HOME=/usr/local/share/android-ndk
 
