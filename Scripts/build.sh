@@ -55,7 +55,7 @@ mkdir -p $(pwd)/Build/android
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
   -executeMethod PerformBuild.CommandLineBuildAndroid \
-  +buildlocation "$(pwd)/Build/android/" \
+  +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
 
 :'
