@@ -1,6 +1,7 @@
 #! /bin/sh
 
-echo "ANDROID_SDK_HOME: $ANDROID_SDK_HOME"
+echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
+echo "ANDROID_NDK_ROOT: $ANDROID_NDK_ROOT"
 echo "JAVA_HOME: $JAVA_HOME"
 
 project="unity-aa"

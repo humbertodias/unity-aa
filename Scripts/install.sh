@@ -64,7 +64,7 @@ installNative gradle
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-brew cask install android-sdk;
+#brew cask install android-sdk;
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 
@@ -72,7 +72,7 @@ export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 curl -o android-ndk-r13b-darwin-x86_64.zip https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
 unzip -qq android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ 
 ln -s /usr/local/share/android-ndk-r13b /usr/local/share/android-ndk
-export ANDROID_NDK_HOME=/usr/local/share/android-ndk
+export ANDROID_NDK_ROOT=/usr/local/share/android-ndk
 
 mkdir "$ANDROID_HOME/licenses";
 echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license";
@@ -86,3 +86,5 @@ sdkmanager --version
 
 echo "JAVA_HOME=$JAVA_HOME"
 echo "ANDROID_HOME=$ANDROID_HOME"
+echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+echo "ANDROID_NDK_ROOT=$ANDROID_NDK_ROOT"

@@ -78,8 +78,6 @@ class PerformBuild
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
 
-
-
 		Debug.Log("Starting " + target.ToString() + " Build!");
 		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 
@@ -98,9 +96,11 @@ class PerformBuild
 		BuildTarget target = BuildTarget.Android;
 
 		string JavaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-		string AndroidSdkRoot = Environment.GetEnvironmentVariable("ANDROID_SDK_HOME");
+		string AndroidSdkRoot = Environment.GetEnvironmentVariable("ANDROID_SDK_ROOT");
+		string AndroidNdkRoot = Environment.GetEnvironmentVariable("ANDROID_NDK_ROOT");
 		Debug.Log("JAVA_HOME: " + JavaHome);
-		Debug.Log("ANDROID_SDK_HOME: " + AndroidSdkRoot);
+		Debug.Log("ANDROID_SDK_ROOT: " + AndroidSdkRoot);
+		Debug.Log("ANDROID_NDK_ROOT: " + AndroidNdkRoot);
 
 
 		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
@@ -138,12 +138,23 @@ class PerformBuild
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
 
 
-
 		BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
 		buildPlayerOptions.scenes = scenes;
 		buildPlayerOptions.locationPathName = path;
 		buildPlayerOptions.target = BuildTarget.Android;
 		buildPlayerOptions.options = BuildOptions.None;
+
+
+		EditorPrefs.SetString ("JdkPath", JavaHome);
+		EditorPrefs.SetString ("AndroidSdkRoot", AndroidSdkRoot);
+		EditorPrefs.SetString ("AndroidNdkRoot", AndroidNdkRoot);
+
+		//set jdk path?
+		PlayerSettings.Android.keystoreName = "android";
+		PlayerSettings.Android.keystorePass = "android";
+		PlayerSettings.Android.keyaliasName = "android";
+		PlayerSettings.Android.keyaliasPass = "android";
+
 
 		Debug.Log("Starting " + target.ToString() + " Build!");
 		//		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);

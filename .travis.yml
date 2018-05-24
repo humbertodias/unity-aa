@@ -17,8 +17,8 @@ jdk: oraclejdk8
 env:
  global:
     - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
-    - ANDROID_SDK_HOME=/usr/local/share/android-sdk
-    - ANDROID_NDK_HOME=/usr/local/share/android-ndk
+    - ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+    - ANDROID_NDK_ROOT=/usr/local/share/android-ndk
     - ANDROID_HOME=/usr/local/share/android-sdk
 
 # android:
