@@ -44,6 +44,59 @@ class PerformBuild
 
 	static void BuildPlayerTarget(BuildTarget target){
 
+		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
+
+		string[] scenes = GetBuildScenes();
+		string path = GetBuildLocation(target);
+		if(scenes == null || scenes.Length==0 || path == null)
+			return;
+
+		Debug.Log(string.Format("Path: \"{0}\"", path));
+		for(int i=0; i < scenes.Length; ++i)
+		{
+			Debug.Log(string.Format("Scene[{0}]: \"{1}\"", i, scenes[i]));
+		}
+
+		Debug.Log(string.Format("Creating Directory \"{0}\" if it does not exist", path));
+		FileInfo fileInfo = new FileInfo (path);
+		if (!fileInfo.Exists) {
+			Debug.Log(string.Format("Not.Exists {0}", fileInfo.ToString()));
+			if (!fileInfo.Directory.Exists) {
+				Debug.Log(string.Format("Directory.Dont.Exists {0}", fileInfo.Directory.ToString()));
+				fileInfo.Directory.Create ();
+			} else {
+				if (!fileInfo.Directory.Parent.Exists) {
+					Debug.Log(string.Format("Directory.Parent.Exists {0}", fileInfo.Directory.Parent.ToString()));
+					fileInfo.Directory.Parent.Create ();
+				}
+			}
+		} else {
+			Debug.Log(string.Format("Exists {0}", fileInfo.ToString()));
+		}
+
+		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
+		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
+		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
+
+
+
+		Debug.Log("Starting " + target.ToString() + " Build!");
+		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
+
+	}
+	
+	[UnityEditor.MenuItem("Perform Build/iOS Command Line Build")]
+	static void CommandLineBuildiOS ()
+	{
+		BuildPlayerTarget(BuildTarget.iOS);
+	}
+	
+	[UnityEditor.MenuItem("Perform Build/Android Command Line Build")]
+	static void CommandLineBuildAndroid ()
+	{
+//		BuildPlayerTarget(BuildTarget.Android);
+		BuildTarget target = BuildTarget.Android;
+
 		string JavaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
 		string AndroidSdkRoot = Environment.GetEnvironmentVariable("ANDROID_SDK_HOME");
 		Debug.Log("JAVA_HOME: " + JavaHome);
@@ -84,21 +137,19 @@ class PerformBuild
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
 
-		Debug.Log("Starting " + target.ToString() + " Build!");
-		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 
-	}
+
+		BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+		buildPlayerOptions.scenes = scenes;
+		buildPlayerOptions.locationPathName = "MyArtifact.apk";
+		buildPlayerOptions.target = BuildTarget.Android;
+		buildPlayerOptions.options = BuildOptions.None;
+
+		Debug.Log("Starting " + target.ToString() + " Build!");
+		//		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
+		BuildPipeline.BuildPlayer(buildPlayerOptions);
 	
-	[UnityEditor.MenuItem("Perform Build/iOS Command Line Build")]
-	static void CommandLineBuildiOS ()
-	{
-		BuildPlayerTarget(BuildTarget.iOS);
-	}
 	
-	[UnityEditor.MenuItem("Perform Build/Android Command Line Build")]
-	static void CommandLineBuildAndroid ()
-	{
-		BuildPlayerTarget(BuildTarget.Android);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/WebGL Command Line Build")]
