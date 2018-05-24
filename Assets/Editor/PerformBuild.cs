@@ -133,6 +133,11 @@ class PerformBuild
 			Debug.Log(string.Format("Exists {0}", fileInfo.ToString()));
 		}
 
+
+		EditorPrefs.SetString ("JdkPath", JavaHome);
+		EditorPrefs.SetString ("AndroidSdkRoot", AndroidSdkRoot);
+		EditorPrefs.SetString ("AndroidNdkRoot", AndroidNdkRoot);
+
 		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
@@ -145,9 +150,6 @@ class PerformBuild
 		buildPlayerOptions.options = BuildOptions.None;
 
 
-		EditorPrefs.SetString ("JdkPath", JavaHome);
-		EditorPrefs.SetString ("AndroidSdkRoot", AndroidSdkRoot);
-		EditorPrefs.SetString ("AndroidNdkRoot", AndroidNdkRoot);
 
 		//set jdk path?
 		PlayerSettings.Android.keystoreName = "android";
