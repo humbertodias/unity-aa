@@ -138,6 +138,8 @@ class PerformBuild
 		EditorPrefs.SetString ("AndroidSdkRoot", AndroidSdkRoot);
 		EditorPrefs.SetString ("AndroidNdkRoot", AndroidNdkRoot);
 
+		PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
+
 		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
@@ -148,6 +150,7 @@ class PerformBuild
 		buildPlayerOptions.locationPathName = path;
 		buildPlayerOptions.target = BuildTarget.Android;
 		buildPlayerOptions.options = BuildOptions.None;
+		
 
 
 
