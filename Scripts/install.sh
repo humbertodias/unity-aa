@@ -68,6 +68,10 @@ brew cask install android-sdk;
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 
+brew cask install android-ndk;
+
+export ANDROID_NDK_HOME=/usr/local/share/android-ndk
+
 mkdir "$ANDROID_HOME/licenses";
 echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license";
 echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license";
