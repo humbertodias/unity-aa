@@ -93,7 +93,7 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
-#brew cask install android-ndk;
+brew cask install android-ndk;
 curl -o android-ndk-r13b-darwin-x86_64.zip https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
 unzip -qq android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ 
 ln -s /usr/local/share/android-ndk-r13b /usr/local/share/android-ndk
