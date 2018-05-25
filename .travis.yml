@@ -34,6 +34,7 @@ deploy:
   file_glob: true
   file: 
     - Build/**/*.zip
+    - Build/android/*.apk
     - unity.log
   api_key: $GITHUB_TOKEN
   skip_cleanup: true

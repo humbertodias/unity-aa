@@ -1,8 +1,5 @@
 #! /bin/sh
 
-echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
-echo "ANDROID_NDK_ROOT: $ANDROID_NDK_ROOT"
-echo "JAVA_HOME: $JAVA_HOME"
 
 project="unity-aa"
 
@@ -39,6 +36,13 @@ buildForDesktop(){
     -projectPath $(pwd) \
     -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
     -quit
+
+  echo 'Attempting to zip builds'
+  pushd $(pwd)/Build
+  zip -9 -r linux.zip linux/
+  zip -9 -r mac.zip osx/
+  zip -9 -r windows.zip windows/
+  popd
 }
 
 buildWegGL(){
@@ -52,9 +56,24 @@ buildWegGL(){
     -executeMethod PerformBuild.CommandLineBuildWebGL \
     +buildlocation "$(pwd)/Build/webgl/$project" \
     -quit  
+
+  if [ $? = 0 ] ; then
+     echo "Building WebGL completed successfully."
+     echo "Zipping..."
+     zip -9 -r webgl.zip . -i "$(pwd)/Build/webgl"
+     error_code=0
+   else
+     echo "Building WebGL failed. Exited with $?."
+     error_code=1
+   fi
 }
 
 buildAndroid(){
+
+  echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
+  echo "ANDROID_NDK_ROOT: $ANDROID_NDK_ROOT"
+  echo "JAVA_HOME: $JAVA_HOME"
+
   echo "Attempting to build $project for Android"
   /Applications/Unity/Unity.app/Contents/MacOS/Unity \
     -batchmode \
@@ -65,7 +84,9 @@ buildAndroid(){
     -executeMethod PerformBuild.CommandLineBuildAndroid \
     +buildlocation "$(pwd)/Build/android/$project.apk" \
     -quit  
+
   rm $(pwd)/Build/android/*.zip
+
 }
 
 buildiOS(){
@@ -79,19 +100,21 @@ buildiOS(){
     -executeMethod PerformBuild.CommandLineBuildiOS \
     +buildlocation "$(pwd)/Build/ios/$project.ipa" \
     -quit  
+
+  if [ $? = 0 ] ; then
+     echo "Building iOS binaries completed successfully."
+     echo "Zipping binaries..."
+     zip -9 -r ios.zip . -i "$(pwd)/Build/ios"
+     error_code=0
+   else
+     echo "Building iOS binaries failed. Exited with $?."
+     error_code=1
+   fi
+
 }
+
+buildiOS
 
 echo 'Logs from build'
 cat $(pwd)/unity.log
 
-buildiOS
-
-echo 'Attempting to zip builds'
-pushd $(pwd)/Build
-zip -9 -r linux.zip linux/
-zip -9 -r mac.zip osx/
-zip -9 -r windows.zip windows/
-zip -9 -r webgl.zip webgl/
-#zip -9 -r android.zip android/
-zip -9 -r ios.zip ios/
-popd
