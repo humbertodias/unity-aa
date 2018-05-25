@@ -81,7 +81,6 @@ class PerformBuild
 		Debug.Log("Starting " + target.ToString() + " Build!");
 		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 
-
 	}
 	
 	[UnityEditor.MenuItem("Perform Build/iOS Command Line Build")]
@@ -153,17 +152,16 @@ class PerformBuild
 		buildPlayerOptions.options = BuildOptions.None;
 		
 
-    //set the internal apk version to the current unix timestamp, so this increases with every build
-    PlayerSettings.Android.bundleVersionCode = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds; 
-    PlayerSettings.Android.keyaliasName = "android";
-    PlayerSettings.Android.keyaliasPass = "android";
-    PlayerSettings.Android.keystorePass = "android";
-    PlayerSettings.Android.keystoreName = Path.GetFullPath(@"./android.keystore");
+	    //set the internal apk version to the current unix timestamp, so this increases with every build
+	    PlayerSettings.Android.bundleVersionCode = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds; 
+	    PlayerSettings.Android.keyaliasName = "android";
+	    PlayerSettings.Android.keyaliasPass = "android";
+	    PlayerSettings.Android.keystorePass = "android";
+	    PlayerSettings.Android.keystoreName = Path.GetFullPath(@"./android.keystore");
 
 		Debug.Log("Starting " + target.ToString() + " Build!");
 		BuildPipeline.BuildPlayer(buildPlayerOptions);
-	
-	
+		
 	}
 
 	[UnityEditor.MenuItem("Perform Build/WebGL Command Line Build")]
@@ -174,9 +172,14 @@ class PerformBuild
 
 	[UnityEditor.MenuItem("Perform Build/WebGL")]
 	static void buildWebGL() {
-		string[] scenes = {"Assets/MainLevel.unity"};
 		string path = "Build/webgl";
-		BuildPipeline.BuildPlayer(scenes, path, BuildTarget.WebGL, BuildOptions.None);
+		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.WebGL, BuildOptions.None);
+	}
+
+	[UnityEditor.MenuItem("Perform Build/iOS")]
+	static void buildiOS() {
+		string path = "Build/ios";
+		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.iOS, BuildOptions.None);
 	}
 		
 }
