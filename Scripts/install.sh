@@ -49,6 +49,11 @@ installFromBrew p7zip
 # http://netstorage.unity3d.com/unity/b8cbb5de9840/unity-2018.1.1f1-osx.ini 
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"
+# Fix - https://github.com/DragonBox/u3d/issues/254
+7z -o/tmp/U e "$(pwd)/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
+pushd /Applications/Unity/PlaybackEngines/MacStandaloneSupport
+gzip -dc /tmp/U/Payload | cpio -
+popd
 
 # <= 2017
 # Desktop
