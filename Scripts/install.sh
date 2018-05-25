@@ -8,8 +8,11 @@ BASE_URL=http://netstorage.unity3d.com/unity
 #HASH=21ae32b5a9cb
 #VERSION=2017.4.3f1
 
-HASH=b8cbb5de9840
-VERSION=2018.1.1f1
+HASH=d4d99f31acba
+VERSION=2018.1.0f2
+
+#HASH=b8cbb5de9840
+#VERSION=2018.1.1f1
 
 download() {
   file=$1
@@ -37,6 +40,7 @@ installNative() {
 # of available packages, where PLATFORM is `osx` or `win`
 
 # http://netstorage.unity3d.com/unity/21ae32b5a9cb/unity-2017.4.3f1-osx.ini 
+# http://netstorage.unity3d.com/unity/d4d99f31acba/unity-2018.1.0f2-osx.ini 
 # http://netstorage.unity3d.com/unity/b8cbb5de9840/unity-2018.1.1f1-osx.ini 
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"

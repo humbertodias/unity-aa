@@ -153,8 +153,8 @@ class PerformBuild
 		buildPlayerOptions.options = BuildOptions.None;
 		
 
-		//set jdk path?
-    PlayerSettings.Android.bundleVersionCode = 1;
+    //set the internal apk version to the current unix timestamp, so this increases with every build
+    PlayerSettings.Android.bundleVersionCode = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds; 
     PlayerSettings.Android.keyaliasName = "android";
     PlayerSettings.Android.keyaliasPass = "android";
     PlayerSettings.Android.keystorePass = "android";
