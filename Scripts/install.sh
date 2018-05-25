@@ -2,8 +2,8 @@
 
 BASE_URL=http://netstorage.unity3d.com/unity
 
-#HASH=649f48bbbf0f
-#VERSION=5.4.1f1
+HASH=649f48bbbf0f
+VERSION=5.4.1f1
 
 #HASH=21ae32b5a9cb
 #VERSION=2017.4.3f1
@@ -43,9 +43,6 @@ installFromBrew() {
 # http://netstorage.unity3d.com/unity/b8cbb5de9840/unity-2018.1.1f1-osx.ini 
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"
-
-$(pwd)/UnitySetup-$VERSION.pkg --list-components
-
 
 # <= 2017
 # Desktop
