@@ -1,4 +1,6 @@
 {
-	"dependencies": {
-	}
+  "registry": "https://packages.unity.com", 
+  "dependencies": {
+    "com.unity.ads": "2.0.8"
+  }
 }
