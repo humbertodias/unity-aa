@@ -5,14 +5,14 @@ BASE_URL=http://netstorage.unity3d.com/unity
 #HASH=649f48bbbf0f
 #VERSION=5.4.1f1
 
-HASH=21ae32b5a9cb
-VERSION=2017.4.3f1
+#HASH=21ae32b5a9cb
+#VERSION=2017.4.3f1
 
 #HASH=d4d99f31acba
 #VERSION=2018.1.0f2
 
-#HASH=b8cbb5de9840
-#VERSION=2018.1.1f1
+HASH=b8cbb5de9840
+VERSION=2018.1.1f1
 
 download() {
   file=$1
@@ -30,15 +30,15 @@ install() {
   sudo installer -dumplog -package `basename "$package"` -target /
 }
 
-installNative() {
+installFromBrew() {
   package=$1
   brew install $package
 }
 
 
 # Aditionals
-installNative gradle
-installNative p7zip
+installFromBrew gradle
+installFromBrew p7zip
 
 
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list

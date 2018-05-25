@@ -6,6 +6,9 @@ echo "JAVA_HOME: $JAVA_HOME"
 
 project="unity-aa"
 
+echo "whoami: $(whoami)"
+ls -lha $(pwd)
+
 echo "Attempting to build $project for OS X"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
