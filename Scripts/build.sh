@@ -116,8 +116,10 @@ buildiOS(){
 
 }
 
-buildiOS
+#buildiOS
+#buildAndroid
+buildForDesktop
+buildWegGL
 
 echo 'Logs from build'
 cat $(pwd)/unity.log
-

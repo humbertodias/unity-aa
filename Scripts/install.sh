@@ -57,14 +57,10 @@ install "MacEditorInstaller/Unity-$VERSION.pkg"
 # popd
 
 
-install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
 
 # Scripting Backend
 install "MacEditorTargetInstaller/UnitySetup-Mac-IL2CPP-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Windows-Mono-Support-for-Editor-$VERSION.pkg"
-
-# Web
-install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
 
 # Cleanup
 rm *.pkg
@@ -112,5 +108,14 @@ installiOS(){
   install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
 }
 
+installWebGL(){
+  install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
+}
 
-installiOS
+installLinux(){
+  install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
+}
+
+#installiOS
+installLinux
+installWebGL
