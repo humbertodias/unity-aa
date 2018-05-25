@@ -9,73 +9,82 @@ project="unity-aa"
 echo "whoami: $(whoami)"
 ls -lha $(pwd)
 
-echo "Attempting to build $project for OS X"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -buildOSXUniversalPlayer "$(pwd)/Build/osx/$project.app" \
-  -quit
+buildForDesktop(){
+  echo "Attempting to build $project for OS X"
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -logFile $(pwd)/unity.log \
+    -projectPath $(pwd) \
+    -buildOSXUniversalPlayer "$(pwd)/Build/osx/$project.app" \
+    -quit
 
-echo "Attempting to build $project for Linux"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project.exe" \
-  -quit
+  echo "Attempting to build $project for Linux"
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -logFile $(pwd)/unity.log \
+    -projectPath $(pwd) \
+    -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project.exe" \
+    -quit
 
-echo "Attempting to build $project for Windows"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
-  -quit
+  echo "Attempting to build $project for Windows"
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -logFile $(pwd)/unity.log \
+    -projectPath $(pwd) \
+    -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
+    -quit
+}
 
-echo "Attempting to build $project for WebGL"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -executeMethod PerformBuild.CommandLineBuildWebGL \
-  +buildlocation "$(pwd)/Build/webgl/$project" \
-  -quit
+buildWegGL(){
+  echo "Attempting to build $project for WebGL"
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -logFile $(pwd)/unity.log \
+    -projectPath $(pwd) \
+    -executeMethod PerformBuild.CommandLineBuildWebGL \
+    +buildlocation "$(pwd)/Build/webgl/$project" \
+    -quit  
+}
 
-echo "Attempting to build $project for Android"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -executeMethod PerformBuild.CommandLineBuildAndroid \
-  +buildlocation "$(pwd)/Build/android/$project.apk" \
-  -quit
+buildAndroid(){
+  echo "Attempting to build $project for Android"
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -logFile $(pwd)/unity.log \
+    -projectPath $(pwd) \
+    -executeMethod PerformBuild.CommandLineBuildAndroid \
+    +buildlocation "$(pwd)/Build/android/$project.apk" \
+    -quit  
+  rm $(pwd)/Build/android/*.zip
+}
 
-rm $(pwd)/Build/android/*.zip
-
-echo "Attempting to build $project for iOS"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
-  -executeMethod PerformBuild.CommandLineBuildiOS \
-  +buildlocation "$(pwd)/Build/ios/$project.ipa" \
-  -quit
+buildiOS(){
+  echo "Attempting to build $project for iOS"
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -logFile $(pwd)/unity.log \
+    -projectPath $(pwd) \
+    -executeMethod PerformBuild.CommandLineBuildiOS \
+    +buildlocation "$(pwd)/Build/ios/$project.ipa" \
+    -quit  
+}
 
 echo 'Logs from build'
 cat $(pwd)/unity.log
+
+buildiOS
 
 echo 'Attempting to zip builds'
 pushd $(pwd)/Build

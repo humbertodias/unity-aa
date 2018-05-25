@@ -35,13 +35,6 @@ installFromBrew() {
   brew install $package
 }
 
-
-# Aditionals
-installFromBrew gradle
-installFromBrew p7zip
-installFromBrew ant
-
-
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
 # of available packages, where PLATFORM is `osx` or `win`
 
@@ -76,41 +69,51 @@ install "MacEditorTargetInstaller/UnitySetup-Windows-Mono-Support-for-Editor-$VE
 # Web
 install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
 
-# Mobile
-#install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
-install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION.pkg"
-
 # Cleanup
 rm *.pkg
 
+installAndroid(){
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+  # Aditionals
+  installFromBrew gradle
+  installFromBrew p7zip
+  installFromBrew ant
 
-brew cask install android-sdk
-export ANDROID_HOME=/usr/local/share/android-sdk
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+  install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION.pkg"
+
+  export JAVA_HOME=$(/usr/libexec/java_home)
+
+  brew cask install android-sdk
+  export ANDROID_HOME=/usr/local/share/android-sdk
+  export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+  export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+  brew cask install android-ndk;
+  curl -o android-ndk-r13b-darwin-x86_64.zip https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
+  unzip -qq android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ 
+  ln -s /usr/local/share/android-ndk-r13b /usr/local/share/android-ndk
+  export ANDROID_NDK_ROOT=/usr/local/share/android-ndk
+
+  mkdir "$ANDROID_HOME/licenses";
+  echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license";
+  echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license";
+  echo y | sdkmanager "platform-tools";
+  echo y | sdkmanager "build-tools;25.0.2";
+  echo y | android update sdk --no-ui --all --filter tool,platform-tool,android-24,build-tools-25.0.2
+
+  gradle -v
+  java -version
+  sdkmanager --version
+  echo "JAVA_HOME=$JAVA_HOME"
+  echo "ANDROID_HOME=$ANDROID_HOME"
+  echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+  echo "ANDROID_NDK_ROOT=$ANDROID_NDK_ROOT"
+}
+
+installiOS(){
+  install "MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-$VERSION.pkg"
+}
 
 
-brew cask install android-ndk;
-curl -o android-ndk-r13b-darwin-x86_64.zip https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
-unzip -qq android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ 
-ln -s /usr/local/share/android-ndk-r13b /usr/local/share/android-ndk
-export ANDROID_NDK_ROOT=/usr/local/share/android-ndk
-
-mkdir "$ANDROID_HOME/licenses";
-echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license";
-echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license";
-echo y | sdkmanager "platform-tools";
-echo y | sdkmanager "build-tools;25.0.2";
-echo y | android update sdk --no-ui --all --filter tool,platform-tool,android-24,build-tools-25.0.2
-
-gradle -v
-java -version
-sdkmanager --version
-
-echo "JAVA_HOME=$JAVA_HOME"
-echo "ANDROID_HOME=$ANDROID_HOME"
-echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
-echo "ANDROID_NDK_ROOT=$ANDROID_NDK_ROOT"
+installiOS
