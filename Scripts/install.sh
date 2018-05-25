@@ -2,8 +2,8 @@
 
 BASE_URL=http://netstorage.unity3d.com/unity
 
-HASH=649f48bbbf0f
-VERSION=5.4.1f1
+#HASH=649f48bbbf0f
+#VERSION=5.4.1f1
 
 HASH=21ae32b5a9cb
 VERSION=2017.4.3f1
@@ -101,7 +101,8 @@ installWebGL(){
 installForDesktop(){
   install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
   install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-  install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
+  # Not Required for MacOSX
+  #install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 }
 
 #installiOS

@@ -46,6 +46,7 @@ class PerformBuild
 
 		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
 
+
 		string[] scenes = GetBuildScenes();
 		string path = GetBuildLocation(target);
 		if(scenes == null || scenes.Length==0 || path == null)
@@ -76,6 +77,10 @@ class PerformBuild
 
 		Debug.Log(string.Format("Switching Build Target to {0}", target.ToString()));
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
+
+    // IL2CPP
+    PlayerSettings.SetScriptingBackend(buildTargetGroup, ScriptingImplementation.IL2CPP);
+
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
 
 		Debug.Log("Starting " + target.ToString() + " Build!");
