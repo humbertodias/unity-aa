@@ -5,14 +5,14 @@ BASE_URL=http://netstorage.unity3d.com/unity
 HASH=649f48bbbf0f
 VERSION=5.4.1f1
 
-#HASH=21ae32b5a9cb
-#VERSION=2017.4.3f1
+HASH=21ae32b5a9cb
+VERSION=2017.4.3f1
 
 #HASH=d4d99f31acba
 #VERSION=2018.1.0f2
 
-HASH=b8cbb5de9840
-VERSION=2018.1.1f1
+#HASH=b8cbb5de9840
+#VERSION=2018.1.1f1
 
 download() {
   file=$1
@@ -43,20 +43,6 @@ installFromBrew() {
 # http://netstorage.unity3d.com/unity/b8cbb5de9840/unity-2018.1.1f1-osx.ini 
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"
-
-# <= 2017
-# Desktop
-# 2018 is not required
-#install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-#install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
-
-# Fix - https://github.com/DragonBox/u3d/issues/254
-# 7z -o/tmp/U e "$(pwd)/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
-# pushd /Applications/Unity/PlaybackEngines/MacStandaloneSupport
-# gzip -dc /tmp/U/Payload | cpio -
-# popd
-
-
 
 # Scripting Backend
 install "MacEditorTargetInstaller/UnitySetup-Mac-IL2CPP-Support-for-Editor-$VERSION.pkg"
@@ -112,10 +98,12 @@ installWebGL(){
   install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
 }
 
-installLinux(){
+installForDesktop(){
   install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
+  install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
+  install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 }
 
 #installiOS
-installLinux
+installForDesktop
 installWebGL
