@@ -3,6 +3,8 @@
 
 project="unity-aa"
 
+chmod -R 777 Packages
+
 echo "whoami: $(whoami)"
 ls -lha $(pwd)
 
