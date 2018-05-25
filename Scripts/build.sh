@@ -48,7 +48,6 @@ echo "Attempting to build $project for WebGL"
   -quit
 
 echo "Attempting to build $project for Android"
-mkdir -p $(pwd)/Build/android
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
@@ -58,6 +57,8 @@ mkdir -p $(pwd)/Build/android
   -executeMethod PerformBuild.CommandLineBuildAndroid \
   +buildlocation "$(pwd)/Build/android/$project.apk" \
   -quit
+
+rm $(pwd)/Build/android/*.zip
 
 :'
 echo "Attempting to build $project for iOS"

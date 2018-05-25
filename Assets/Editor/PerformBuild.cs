@@ -81,6 +81,7 @@ class PerformBuild
 		Debug.Log("Starting " + target.ToString() + " Build!");
 		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 
+
 	}
 	
 	[UnityEditor.MenuItem("Perform Build/iOS Command Line Build")]
@@ -152,17 +153,14 @@ class PerformBuild
 		buildPlayerOptions.options = BuildOptions.None;
 		
 
-
-
 		//set jdk path?
-		PlayerSettings.Android.keystoreName = "android";
-		PlayerSettings.Android.keystorePass = "android";
-		PlayerSettings.Android.keyaliasName = "android";
-		PlayerSettings.Android.keyaliasPass = "android";
-
+    PlayerSettings.Android.bundleVersionCode = 1;
+    PlayerSettings.Android.keyaliasName = "android";
+    PlayerSettings.Android.keyaliasPass = "android";
+    PlayerSettings.Android.keystorePass = "android";
+    PlayerSettings.Android.keystoreName = Path.GetFullPath(@"./android.keystore");
 
 		Debug.Log("Starting " + target.ToString() + " Build!");
-		//		BuildPipeline.BuildPlayer(scenes, path, target, BuildOptions.None);
 		BuildPipeline.BuildPlayer(buildPlayerOptions);
 	
 	
