@@ -35,7 +35,7 @@ deploy:
   file: 
     - Build/**/*.zip
     - Build/android/*.apk
-    - unity.log
+    - Build/ios/*.ipa
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
