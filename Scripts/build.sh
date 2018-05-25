@@ -1,9 +1,6 @@
 #! /bin/sh
 
-
 project="unity-aa"
-
-chmod -R 777 Packages
 
 echo "whoami: $(whoami)"
 ls -lha $(pwd)
@@ -62,7 +59,9 @@ buildWegGL(){
   if [ $? = 0 ] ; then
      echo "Building WebGL completed successfully."
      echo "Zipping..."
-     zip -9 -r webgl.zip . -i "$(pwd)/Build/webgl"
+     pushd $(pwd)/Build
+     zip -9 -r webgl.zip webgl/
+     popd
      error_code=0
    else
      echo "Building WebGL failed. Exited with $?."
