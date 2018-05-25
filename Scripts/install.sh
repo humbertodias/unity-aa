@@ -36,6 +36,11 @@ installNative() {
 }
 
 
+# Aditionals
+installNative gradle
+installNative p7zip
+
+
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
 # of available packages, where PLATFORM is `osx` or `win`
 
@@ -66,8 +71,6 @@ install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION
 # Cleanup
 rm *.pkg
 
-# Aditionals
-installNative gradle
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
