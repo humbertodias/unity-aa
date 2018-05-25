@@ -50,13 +50,13 @@ installFromBrew p7zip
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"
 
-$(pwd)/UnitySetup-$VERSION --list-components
+$(pwd)/UnitySetup-$VERSION.pkg --list-components
 
 
 # <= 2017
 # Desktop
 # 2018 is not required
-install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
+#install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
 #install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 
 # Fix - https://github.com/DragonBox/u3d/issues/254
