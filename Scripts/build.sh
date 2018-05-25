@@ -7,7 +7,7 @@ echo "JAVA_HOME: $JAVA_HOME"
 project="unity-aa"
 
 echo "Attempting to build $project for OS X"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+sudo /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
@@ -17,7 +17,7 @@ echo "Attempting to build $project for OS X"
   -quit
 
 echo "Attempting to build $project for Linux"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+sudo /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
@@ -27,7 +27,7 @@ echo "Attempting to build $project for Linux"
   -quit
 
 echo "Attempting to build $project for Windows"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+sudo /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
@@ -37,7 +37,7 @@ echo "Attempting to build $project for Windows"
   -quit
 
 echo "Attempting to build $project for WebGL"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+sudo /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
@@ -48,7 +48,7 @@ echo "Attempting to build $project for WebGL"
   -quit
 
 echo "Attempting to build $project for Android"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+sudo /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
@@ -62,7 +62,7 @@ rm $(pwd)/Build/android/*.zip
 
 :'
 echo "Attempting to build $project for iOS"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+sudo /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
