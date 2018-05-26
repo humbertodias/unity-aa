@@ -1,9 +1,13 @@
-# Unity-AA replica 
+# Unity-aa replica 
 
+[![Build Status](https://travis-ci.org/humbertodias/unity-aa.svg?branch=master)](
+https://travis-ci.org/humbertodias/unity-aa)
 
-[![Build Status](https://travis-ci.org/humbertodias/unity-aa.svg?branch=master)](https://travis-ci.org/humbertodias/unity-aa)
+aa clone game using Unity
 
-[WebGL](https://humbertodias.github.io/unity-aa/)
+[Play](http://humbertodias.github.io/unity-aa)
+
+[Releases](https://github.com/humbertodias/unity-aa/releases)
 
 
 # Ref
