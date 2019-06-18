@@ -115,8 +115,8 @@ buildiOS(){
 
 }
 
-#buildiOS
-#buildAndroid
+buildiOS
+buildAndroid
 buildForDesktop
 buildWegGL
 
