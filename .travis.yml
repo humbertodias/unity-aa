@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.3
+osx_image: xcode10.2
 rvm:
 - 2.5.1
 
@@ -12,11 +12,11 @@ install:
 script:
 - travis_wait 30 "./Scripts/build.sh"
 
-jdk: oraclejdk8
+jdk: oraclejdk12
 
 env:
  global:
-    - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+    #- JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
     - ANDROID_SDK_ROOT=/usr/local/share/android-sdk
     - ANDROID_NDK_ROOT=/usr/local/share/android-ndk
     - ANDROID_HOME=/usr/local/share/android-sdk
