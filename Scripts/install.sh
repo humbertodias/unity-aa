@@ -5,8 +5,8 @@ BASE_URL=http://netstorage.unity3d.com/unity
 #HASH=649f48bbbf0f
 #VERSION=5.4.1f1
 
-#HASH=21ae32b5a9cb
-#VERSION=2017.4.3f1
+HASH=21ae32b5a9cb
+VERSION=2017.4.3f1
 
 #HASH=d4d99f31acba
 #VERSION=2018.1.0f2
@@ -14,8 +14,8 @@ BASE_URL=http://netstorage.unity3d.com/unity
 #HASH=b8cbb5de9840
 #VERSION=2018.1.1f1
 
-HASH=292b93d75a2c
-VERSION=2019.1.0f2
+#HASH=292b93d75a2c
+#VERSION=2019.1.0f2
 
 download() {
   file=$1
@@ -59,7 +59,6 @@ rm *.pkg
 installAndroid(){
 
   brew cask install homebrew/cask-versions/java8
-
 
   # Aditionals
   installFromBrew gradle
