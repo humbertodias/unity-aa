@@ -119,6 +119,8 @@ buildiOS(){
 
 }
 
+export EVENT_NOKQUEUE=1
+
 buildiOS
 buildAndroid
 buildForDesktop

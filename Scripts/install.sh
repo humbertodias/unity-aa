@@ -113,6 +113,8 @@ installForDesktop(){
   #install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 }
 
+export EVENT_NOKQUEUE=1
+
 installAndroid
 installiOS
 installForDesktop
