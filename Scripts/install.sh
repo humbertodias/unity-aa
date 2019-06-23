@@ -58,6 +58,8 @@ rm *.pkg
 
 installAndroid(){
 
+  brew cask install homebrew/cask-versions/java8
+
 
   # Aditionals
   installFromBrew gradle
@@ -66,7 +68,7 @@ installAndroid(){
 
   install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION.pkg"
 
-  export JAVA_HOME=$(/usr/libexec/java_home)
+  export JAVA_HOME=$(/usr/libexec/java_home -version 1.8)
   # avoiding error : java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
   # export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 
