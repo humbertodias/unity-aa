@@ -110,6 +110,7 @@ installForDesktop(){
   #install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 }
 
-#installiOS
+installAndroid
+installiOS
 installForDesktop
 installWebGL
