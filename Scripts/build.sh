@@ -71,12 +71,13 @@ buildWegGL(){
 
 buildAndroid(){
 
+  export JAVA_HOME=$(/usr/libexec/java_home)
+  # avoiding error : java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
+  export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+
   echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
   echo "ANDROID_NDK_ROOT: $ANDROID_NDK_ROOT"
   echo "JAVA_HOME: $JAVA_HOME"
-  
-  # avoiding error : java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
-  export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 
   echo "Attempting to build $project for Android"
   /Applications/Unity/Unity.app/Contents/MacOS/Unity \
