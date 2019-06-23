@@ -58,6 +58,7 @@ rm *.pkg
 
 installAndroid(){
 
+
   # Aditionals
   installFromBrew gradle
   installFromBrew p7zip
@@ -66,6 +67,8 @@ installAndroid(){
   install "MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-$VERSION.pkg"
 
   export JAVA_HOME=$(/usr/libexec/java_home)
+  # avoiding error : java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
+  export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 
   brew cask install android-sdk
   export ANDROID_HOME=/usr/local/share/android-sdk
@@ -73,7 +76,7 @@ installAndroid(){
   export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-  brew cask install android-ndk;
+  brew tap homebrew/cask && brew cask install android-ndk
   curl -o android-ndk-r13b-darwin-x86_64.zip https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip
   unzip -qq android-ndk-r13b-darwin-x86_64.zip -d /usr/local/share/ 
   ln -s /usr/local/share/android-ndk-r13b /usr/local/share/android-ndk
