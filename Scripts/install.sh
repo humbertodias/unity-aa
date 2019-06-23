@@ -68,7 +68,7 @@ installAndroid(){
 
   export JAVA_HOME=$(/usr/libexec/java_home)
   # avoiding error : java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
-  export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+  # export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 
   brew cask install android-sdk
   export ANDROID_HOME=/usr/local/share/android-sdk
