@@ -181,5 +181,23 @@ public class PerformBuild
 		string path = "Build/ios";
 		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.iOS, BuildOptions.None);
 	}
-		
+
+	[UnityEditor.MenuItem("Perform Build/Windows")]
+	public static void buildWindows() {
+		string path = "Build/windows.exe";
+		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.StandaloneWindows, BuildOptions.None);
+	}
+
+	[UnityEditor.MenuItem("Perform Build/Linux")]
+	public static void buildLinux() {
+		string path = "Build/linux";
+		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.StandaloneLinux64, BuildOptions.None);
+	}
+
+	[UnityEditor.MenuItem("Perform Build/OSX")]
+	public static void buildOSX() {
+		string path = "Build/osx";
+		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.StandaloneOSX, BuildOptions.None);
+	}
+
 }
