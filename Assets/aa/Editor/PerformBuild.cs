@@ -184,19 +184,19 @@ public class PerformBuild
 
 	[UnityEditor.MenuItem("Perform Build/Windows")]
 	public static void buildWindows() {
-		string path = "Build/windows.exe";
+		string path = "Build/windows/aa.exe";
 		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.StandaloneWindows, BuildOptions.None);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/Linux")]
 	public static void buildLinux() {
-		string path = "Build/linux";
+		string path = "Build/linux/aa.x64";
 		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.StandaloneLinux64, BuildOptions.None);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/OSX")]
 	public static void buildOSX() {
-		string path = "Build/osx";
+		string path = "Build/osx/aa";
 		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.StandaloneOSX, BuildOptions.None);
 	}
 
