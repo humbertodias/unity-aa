@@ -5,11 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-class PerformBuild
+public class PerformBuild
 {
 	private static string BUILD_LOCATION = "+buildlocation";
 
-	static string GetBuildLocation(BuildTarget buildTarget)
+	public static string GetBuildLocation(BuildTarget buildTarget)
 	{
 		string[] args = System.Environment.GetCommandLineArgs();
 		int indexOfBuildLocation = System.Array.IndexOf(args, BUILD_LOCATION);
@@ -27,7 +27,7 @@ class PerformBuild
 		}
 	}
 
-	static string[] GetBuildScenes()
+	public static string[] GetBuildScenes()
 	{
 		List<string> names = new List<string>();
 		
@@ -42,7 +42,7 @@ class PerformBuild
 		return names.ToArray();
 	}
 
-	static void BuildPlayerTarget(BuildTarget target){
+	public static void BuildPlayerTarget(BuildTarget target){
 
 		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
 
@@ -95,9 +95,8 @@ class PerformBuild
 	}
 	
 	[UnityEditor.MenuItem("Perform Build/Android Command Line Build")]
-	static void CommandLineBuildAndroid ()
+	public static void CommandLineBuildAndroid ()
 	{
-//		BuildPlayerTarget(BuildTarget.Android);
 		BuildTarget target = BuildTarget.Android;
 
 		string JavaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
@@ -106,7 +105,6 @@ class PerformBuild
 		Debug.Log("JAVA_HOME: " + JavaHome);
 		Debug.Log("ANDROID_SDK_ROOT: " + AndroidSdkRoot);
 		Debug.Log("ANDROID_NDK_ROOT: " + AndroidNdkRoot);
-
 
 		Debug.Log("Command line build " + target.ToString() + " version\n------------------\n------------------");
 
@@ -138,7 +136,6 @@ class PerformBuild
 			Debug.Log(string.Format("Exists {0}", fileInfo.ToString()));
 		}
 
-
 		EditorPrefs.SetString ("JdkPath", JavaHome);
 		EditorPrefs.SetString ("AndroidSdkRoot", AndroidSdkRoot);
 		EditorPrefs.SetString ("AndroidNdkRoot", AndroidNdkRoot);
@@ -149,13 +146,11 @@ class PerformBuild
 		BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup (target);
 		EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, target);
 
-
 		BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
 		buildPlayerOptions.scenes = scenes;
 		buildPlayerOptions.locationPathName = path;
 		buildPlayerOptions.target = BuildTarget.Android;
 		buildPlayerOptions.options = BuildOptions.None;
-		
 
 	    //set the internal apk version to the current unix timestamp, so this increases with every build
 	    PlayerSettings.Android.bundleVersionCode = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds; 
@@ -170,19 +165,19 @@ class PerformBuild
 	}
 
 	[UnityEditor.MenuItem("Perform Build/WebGL Command Line Build")]
-	static void CommandLineBuildWebGL ()
+	public static void CommandLineBuildWebGL ()
 	{
 		BuildPlayerTarget(BuildTarget.WebGL);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/WebGL")]
-	static void buildWebGL() {
+	public static void buildWebGL() {
 		string path = "Build/webgl";
 		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.WebGL, BuildOptions.None);
 	}
 
 	[UnityEditor.MenuItem("Perform Build/iOS")]
-	static void buildiOS() {
+	public static void buildiOS() {
 		string path = "Build/ios";
 		BuildPipeline.BuildPlayer(GetBuildScenes(), path, BuildTarget.iOS, BuildOptions.None);
 	}
