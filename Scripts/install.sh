@@ -58,7 +58,7 @@ rm *.pkg
 
 installAndroid(){
 
-  brew cask install homebrew/cask-versions/java8
+  brew cask install java
 
   # Aditionals
   installFromBrew gradle
